@@ -18,3 +18,5 @@ That assumes a pre-shared ssh key so you don't need passwords.
 
 On the development machine:
 ssh-copy-id -i .ssh/id_rsa.pub tflint@cam4.local
+
+

@@ -1,8 +1,9 @@
 #[macro_use] extern crate rocket;
+#[macro_use] extern crate libcamera;
 
 #[get("/")]
 fn index() -> &'static str {
-    "Hello, world!"
+    "Hello, this is an Outpost Camera."
 }
 
 #[launch]
