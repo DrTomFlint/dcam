@@ -14,10 +14,12 @@ readonly SOURCE_PATH=../target/${TARGET_ARCH}/release/dcampi
 # also copy the html files
 readonly SOURCE_HTML=./src/*
 readonly TARGET_HTML=${TARGET_PATH}/src
+readonly SOURCE_ROCKET=./Rocket.toml
 
 cargo build --release --target=${TARGET_ARCH}
 rsync ${SOURCE_PATH} ${TARGET_HOST}:${TARGET_PATH}
 rsync ${SOURCE_HTML} ${TARGET_HOST}:${TARGET_HTML}
+rsync ${SOURCE_ROCKET} ${TARGET_HOST}:${TARGET_PATH}
 ssh -t ${TARGET_HOST} "
     cd ${TARGET_PATH}
     ./dcampi
