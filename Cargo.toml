@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+    "dcampi",
+    "dcamhub",
+]
+resolver = "2"
+
