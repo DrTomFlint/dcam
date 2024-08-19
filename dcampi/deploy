@@ -16,6 +16,11 @@ readonly SOURCE_HTML=./src/*
 readonly TARGET_HTML=${TARGET_PATH}/src
 readonly SOURCE_ROCKET=./Rocket.toml
 
+# set up environment variables for cross-compilation with sysroot
+export PKG_CONFIG_SYSROOT_DIR=/home/tflint/Documents/pi0root
+export PKG_CONFIG_ALLOW_CROSS=1
+export PKG_CONFIG_PATH=/home/tflint/Documents/pi0root/usr/lib/aarch64-linux-gnu/pkgconfig
+
 cargo build --release --target=${TARGET_ARCH}
 rsync ${SOURCE_PATH} ${TARGET_HOST}:${TARGET_PATH}
 rsync ${SOURCE_HTML} ${TARGET_HOST}:${TARGET_HTML}

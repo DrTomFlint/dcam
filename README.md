@@ -19,4 +19,12 @@ That assumes a pre-shared ssh key so you don't need passwords.
 On the development machine:
 ssh-copy-id -i .ssh/id_rsa.pub tflint@cam4.local
 
+Here are 3 symlinks required on Ubuntu 22.04.3 machine to enable cargo to build:
+
+sudo ln -s /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /lib/ld-linux-aarch64.so.1
+
+sudo ln -s /usr/aarch64-linux-gnu/lib/libc_nonshared.a /usr/lib/aarch64-linux-gnu/libc_nonshared.a
+
+sudo ln -s /usr/aarch64-linux-gnu/lib/libc.so.6 /lib/aarch64-linux-gnu/libc.so.6
+
 
