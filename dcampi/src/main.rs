@@ -15,23 +15,23 @@ fn camlist() -> String {
     pageout.push_str("List of Cameras: none");
 
     // @TODO linker needs sysroot with libcamera installed?
-    // let mgr = CameraManager::new().unwrap();
+    let mgr = CameraManager::new().unwrap();
 
-    // mgr.log_set_level("Camera", LoggingLevel::Error);
+    mgr.log_set_level("Camera", LoggingLevel::Error);
 
-    // let cameras = mgr.cameras();
+    let cameras = mgr.cameras();
 
-    // for i in 0..cameras.len() {
-    //     let cam = cameras.get(i).unwrap();
-    //     pageout.push_str(&format!("Camera {}", i));
-    //     pageout.push_str(&format!("ID: {}", cam.id()));
+    for i in 0..cameras.len() {
+        let cam = cameras.get(i).unwrap();
+        pageout.push_str(&format!("Camera {}", i));
+        pageout.push_str(&format!("ID: {}", cam.id()));
 
-    //     pageout.push_str(&format!("Properties: {:#?}", cam.properties()));
+        pageout.push_str(&format!("Properties: {:#?}", cam.properties()));
 
-    //     let config = cam.generate_configuration(&[StreamRole::ViewFinder]).unwrap();
-    //     let view_finder_cfg = config.get(0).unwrap();
-    //     pageout.push_str(&format!("Available formats: {:#?}", view_finder_cfg.formats()));
-    // }
+        let config = cam.generate_configuration(&[StreamRole::ViewFinder]).unwrap();
+        let view_finder_cfg = config.get(0).unwrap();
+        pageout.push_str(&format!("Available formats: {:#?}", view_finder_cfg.formats()));
+    }
 
 
     pageout
